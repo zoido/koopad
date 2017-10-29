@@ -1,0 +1,31 @@
+apply plugin: 'java'
+// apply plugin: 'application'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/java'
+        }
+    }
+    test {
+        java {
+            srcDir 'tests/java'
+        }
+    }
+}
+
+// Define the main class for the application
+// mainClassName = 'App'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:22.0'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.google.truth:truth:0.36'
+}
+
+

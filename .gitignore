@@ -1,0 +1,7 @@
+# test and build
+/build
+/.gradle
+
+# editor configs
+/.vscode
+
