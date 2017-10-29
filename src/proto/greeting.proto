@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+package koopad;
+
+option java_package = "koopad";
+option java_outer_classname = "Hello";
+
+message Greeting {
+    required string greeting = 1;
+  }

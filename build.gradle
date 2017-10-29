@@ -1,31 +1,62 @@
 apply plugin: 'java'
-// apply plugin: 'application'
-
-sourceSets {
-    main {
-        java {
-            srcDir 'src/java'
-        }
-    }
-    test {
-        java {
-            srcDir 'tests/java'
-        }
-    }
-}
-
-// Define the main class for the application
-// mainClassName = 'App'
+apply plugin: 'com.google.protobuf'
 
 repositories {
-    jcenter()
+  jcenter()
 }
+
+sourceSets {
+  main {
+    java {
+      srcDir 'src/java'
+    }
+    proto {
+      srcDir 'src/proto'
+    }
+  }
+  test {
+    java {
+      srcDir 'tests/java'
+    }
+  }
+}
+
+protobuf {
+  protoc {
+    artifact = 'com.google.protobuf:protoc:2.6.1'
+  }
+  plugins {
+    grpc {
+      artifact = 'io.grpc:protoc-gen-grpc-java:1.7.0'
+    }
+  }
+  generateProtoTasks {
+    all()*.plugins {
+      grpc {}
+    }
+  }
+}
+
 
 dependencies {
     compile 'com.google.guava:guava:22.0'
+    compile 'com.google.protobuf:protobuf-java:3.4.0'
+    compile 'io.grpc:grpc-protobuf:1.7.0'
+    compile 'io.grpc:grpc-stub:1.7.0'
 
     testCompile 'junit:junit:4.12'
     testCompile 'com.google.truth:truth:0.36'
 }
 
+
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.3'
+  }
+}
 
