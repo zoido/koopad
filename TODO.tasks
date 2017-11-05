@@ -1,0 +1,13 @@
+Development:
+    ☐ set and try Travic CI for this
+    ☐ set up vscode java extension on Windows
+    ☐ google-java-format check via Bazel
+
+Libs:
+    ☐ logging
+
+Technologies:
+    ☐ persistence backend (Redis, RethinkDB, MongoDB, CoachDB?)
+
+Design:
+    ☐ Auth

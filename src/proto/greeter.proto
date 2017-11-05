@@ -1,0 +1,21 @@
+syntax = "proto2";
+
+package koopad;
+
+option java_package = "koopad.grpc";
+option java_multiple_files = true;
+
+import "src/proto/greeting.proto";
+
+message HelloRequest {
+    optional string name = 1;
+}
+
+message HelloReply {
+    optional koopad.Greeting greeting = 1;
+}
+
+service KoopadGreeter {
+    rpc Greet (HelloRequest) returns (HelloReply) {}
+}
+

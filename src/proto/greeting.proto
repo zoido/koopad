@@ -3,8 +3,9 @@ syntax = "proto2";
 package koopad;
 
 option java_package = "koopad";
-option java_outer_classname = "Hello";
+option java_multiple_files = true;
 
 message Greeting {
-    required string greeting = 1;
-  }
+    optional string message = 1;
+    optional string name = 2;
+}

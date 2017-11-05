@@ -1,7 +1,5 @@
-# test and build
-/build
-/.gradle
+# Bazel
+/bazel-*
 
-# editor configs
+# VS Code
 /.vscode
-
