@@ -73,11 +73,6 @@ maven_jar(
     artifact = "io.grpc:grpc-stub:1.7.0",
 )
 
-# maven_jar(
-#     name = "jsr330_inject",
-#     artifact = "javax.inject:javax.inject:1",
-# )
-
 # Build Dependencies
 git_repository(
     name = "grpc_java",
