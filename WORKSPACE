@@ -73,6 +73,16 @@ maven_jar(
     artifact = "io.netty:netty-all:4.1.16.Final",
 )
 
+# tests
+maven_jar(
+    name = "junit4",
+    artifact = "junit:junit:4.12",
+)
+maven_jar(
+    name = "truth",
+    artifact = "com.google.truth:truth:0.36",
+)
+
 # Build Dependencies
 git_repository(
     name = "grpc_java",
