@@ -8,6 +8,10 @@ java_library(
         "//third_party:dagger_grpc_plugin",
         "//third_party:dagger_plugin",
     ],
+    exported_plugins = [
+        "//third_party:dagger_grpc_plugin",
+        "//third_party:dagger_plugin",
+    ],
     deps = [
         "@dagger_grpc_server_annotations//jar",
         "@dagger_grpc_server//jar",

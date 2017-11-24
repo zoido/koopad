@@ -13,10 +13,6 @@ java_binary(
 java_library(
     name = "koopad_lib",
     srcs = glob(["*.java"]),
-    plugins = [
-        "//third_party:dagger_grpc_plugin",
-        "//third_party:dagger_plugin",
-    ],
     deps = [
         "@dagger_grpc_server_annotations//jar",
         "@dagger//jar",
