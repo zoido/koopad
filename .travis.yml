@@ -1,8 +1,10 @@
+cache:
+  directories:
+    - /home/travis/.cache/bazel
+
 matrix:
   include:
-    - os: linux
-      dist: trusty
-      language: java
+    - language: java
       jdk: openjdk8
       addons:
         apt:
@@ -15,7 +17,6 @@ matrix:
 script: |-
   bazel \
     --batch \
-    --verbose_failuires \
     --host_jvm_args=-Xmx2500m \
     --host_jvm_args=-Xms2500m \
     test \
@@ -25,4 +26,3 @@ script: |-
     --test_strategy=standalone \
     --ram_utilization_factor=10 \
     //...
-
