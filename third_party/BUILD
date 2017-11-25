@@ -14,7 +14,6 @@ java_plugin(
         "@guava//jar",
         "@javax_inject//jar",
     ],
-    # runtime = "@local_jdk//:jdk-default",
 )
 
 java_plugin(
@@ -34,4 +33,14 @@ java_plugin(
         "@guava//jar",
         "@javax_inject//jar",
     ],
+)
+
+java_binary(
+    name = "google_java_format",
+    main_class = "com.google.googlejavaformat.java.Main",
+    runtime_deps = [
+        "@guava//jar",
+        "@google_java_format//jar",
+        "@errorprone_javac//jar",
+    ]
 )
