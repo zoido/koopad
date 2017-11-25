@@ -13,7 +13,7 @@ Whole life cycle tooling should be wired in as soon as possible.
  * java
  * dagger + producers
  * grpc
- * dart for front end
+ * dart for front-end
 
 
 <!-- [![Build Status](https://travis-ci.org/zoido/--XXX--.svg?branch=master)](https://travis-ci.org/zoido/--XXX--) [![Coverage Status](https://coveralls.io/repos/github/zoido/--XXX--/badge.svg?branch=master)](https://coveralls.io/github/zoido/--XXX--?branch=master) -->
