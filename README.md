@@ -1,5 +1,7 @@
 # koopad
 
+[![Build Status](https://travis-ci.org/zoido/koopad.svg?branch=master)](https://travis-ci.org/zoido/koopad)
+
 Experiments: from hello world to whatever it's end up.
 
 Eventual goal is to to have a collaborative online plain-text editor, however
@@ -16,4 +18,5 @@ Whole life cycle tooling should be wired in as soon as possible.
  * dart for front-end
 
 
-<!-- [![Build Status](https://travis-ci.org/zoido/--XXX--.svg?branch=master)](https://travis-ci.org/zoido/--XXX--) [![Coverage Status](https://coveralls.io/repos/github/zoido/--XXX--/badge.svg?branch=master)](https://coveralls.io/github/zoido/--XXX--?branch=master) -->
+<!--
+[![Coverage Status](https://coveralls.io/repos/github/zoido/koopad/badge.svg?branch=master)](https://coveralls.io/github/zoido/koopad?branch=master) -->

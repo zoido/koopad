@@ -1,5 +1,5 @@
 Development:
-    ☐ set and try Travic CI for this
+    ✔ set and try Travic CI for this @done (11/25/2017, 1:44:33 PM)
     ☐ set up vscode java extension on Windows
     ✔ google-java-format check via Bazel @done (11/25/2017, 9:40:46 AM)
 
