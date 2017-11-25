@@ -25,6 +25,8 @@ jobs:
           build \
             //third_party:google_java_format \
         && ./bazel-bin/third_party/google_java_format \
+          --version \
+        && ./bazel-bin/third_party/google_java_format \
           --dry-run \
           --set-exit-if-changed \
           `find . -iname "*.java"`
