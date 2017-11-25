@@ -18,31 +18,30 @@ addons:
 jobs:
   include:
     - stage: lint
-      script:
-        bazel
-          --batch
-          --host_jvm_args=-Xmx2500m
-          --host_jvm_args=-Xms2500m
-          build
-            //third_party:google_java_format
-        &&
-        ./bazel-bin/third_party/google_java_format
-          --dry-runn
-          --set-exit-if-changed
+      script: |-
+        bazel \
+          --batch \
+          --host_jvm_args=-Xmx2500m \
+          --host_jvm_args=-Xms2500m \
+          build \
+            //third_party:google_java_format \
+        && ./bazel-bin/third_party/google_java_format \
+          --dry-run \
+          --set-exit-if-changed \
           **/*.java
 
 
     # test
     - stage: test
-      script:
-        bazel
-          --batch
-          --host_jvm_args=-Xmx2500m
-          --host_jvm_args=-Xms2500m
-          test
-            --noshow_loading_progress
-            --noshow_progress
-            --test_output=errors
-            --test_strategy=standalone
-            --ram_utilization_factor=10
+      script: |-
+        bazel \
+          --batch \
+          --host_jvm_args=-Xmx2500m \
+          --host_jvm_args=-Xms2500m \
+          test \
+            --noshow_loading_progress \
+            --noshow_progress \
+            --test_output=errors \
+            --test_strategy=standalone \
+            --ram_utilization_factor=10 \
             //...
