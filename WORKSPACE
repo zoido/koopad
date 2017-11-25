@@ -79,6 +79,10 @@ maven_jar(
     artifact = "junit:junit:4.12",
 )
 maven_jar(
+    name = "grpc_testing",
+    artifact = "io.grpc:grpc-testing:1.7.0",
+)
+maven_jar(
     name = "truth",
     artifact = "com.google.truth:truth:0.36",
 )

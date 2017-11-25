@@ -4,8 +4,8 @@ import dagger.grpc.server.GrpcService;
 import io.grpc.stub.StreamObserver;
 import javax.inject.Inject;
 import koopad.Greeting;
-import koopad.grpc.HelloReply;
 import koopad.grpc.HelloRequest;
+import koopad.grpc.HelloResponse;
 import koopad.grpc.KoopadGreeterGrpc;
 
 /** Simple implementation of {@link KoopadGreeterGrpc}. */
@@ -16,10 +16,10 @@ public final class Greeter extends KoopadGreeterGrpc.KoopadGreeterImplBase {
   Greeter() {}
 
   @Override
-  public void greet(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
+  public void greet(HelloRequest request, StreamObserver<HelloResponse> responseObserver) {
     Greeting greeting =
         Greeting.newBuilder().setMessage("Hello!").setName(request.getName()).build();
-    HelloReply reply = HelloReply.newBuilder().setGreeting(greeting).build();
+    HelloResponse reply = HelloResponse.newBuilder().setGreeting(greeting).build();
 
     responseObserver.onNext(reply);
     responseObserver.onCompleted();
