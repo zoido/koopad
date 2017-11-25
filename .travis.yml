@@ -18,7 +18,7 @@ addons:
 jobs:
   include:
     - stage: lint
-      script: >
+      script: >-
         bazel
           --batch
           --host_jvm_args=-Xmx2500m
@@ -34,7 +34,7 @@ jobs:
 
     # test
     - stage: test
-      script: >
+      script: >-
         bazel
           --batch
           --host_jvm_args=-Xmx2500m
