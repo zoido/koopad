@@ -2,17 +2,18 @@ cache:
   directories:
     - /home/travis/.cache/bazel
 
+addons:
+  apt:
+    sources:
+      - sourceline: "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8"
+        key_url: "https://storage.googleapis.com/bazel-apt/doc/apt-key.pub.gpg"
+    packages:
+      - bazel
+
 matrix:
   include:
     - language: java
       jdk: openjdk8
-      addons:
-        apt:
-          sources:
-            - sourceline: "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8"
-              key_url: "https://storage.googleapis.com/bazel-apt/doc/apt-key.pub.gpg"
-          packages:
-            - bazel
 
 script: |-
   bazel \
@@ -21,7 +22,7 @@ script: |-
     --host_jvm_args=-Xms2500m \
     test \
     --noshow_loading_progress \
-    --noshow_progress
+    --noshow_progress \
     --test_output=errors \
     --test_strategy=standalone \
     --ram_utilization_factor=10 \
