@@ -3,8 +3,9 @@ package koopad.service.greeter;
 import dagger.Binds;
 import dagger.Module;
 
+/** Main module for Greeter. */
 @Module
 public abstract class GreeterModule {
   @Binds
-  abstract GreeterServiceDefinition greeterComponent(GreeterComponent greeterComponent);
+  abstract GreeterServiceDefinition greeterSubComponent(GreeterSubComponent greeterSubComponent);
 }

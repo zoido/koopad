@@ -8,6 +8,7 @@ import io.grpc.ServerInterceptor;
 import java.util.List;
 import koopad.grpc.KoopadGreeterGrpc;
 
+/** Interceptors binding for Greeter. */
 @Module
 public abstract class GreeterInterceptorsModule {
   @Provides

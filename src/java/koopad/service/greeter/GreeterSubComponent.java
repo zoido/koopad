@@ -4,6 +4,7 @@ import dagger.Subcomponent;
 import dagger.grpc.server.CallScoped;
 import dagger.grpc.server.GrpcCallMetadataModule;
 
+/** Main Greeter's sub component. */
 @CallScoped
 @Subcomponent(
   modules = {
@@ -13,4 +14,4 @@ import dagger.grpc.server.GrpcCallMetadataModule;
     GreeterModule.class
   }
 )
-public interface GreeterComponent extends GreeterServiceDefinition {}
+public interface GreeterSubComponent extends GreeterServiceDefinition {}

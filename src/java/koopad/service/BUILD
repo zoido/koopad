@@ -15,8 +15,9 @@ java_library(
     srcs = glob(["*.java"]),
     deps = [
         "@dagger_grpc_server_annotations//jar",
-        "@dagger//jar",
         "@dagger_grpc_server//jar",
+        "@dagger//jar",
+        "@google_options//jar",
         "@grpc_core//jar",
         "@guava//jar",
         "@javax_inject//jar",

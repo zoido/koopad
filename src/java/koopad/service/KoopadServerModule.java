@@ -5,6 +5,7 @@ import dagger.Provides;
 import dagger.grpc.server.GrpcCallMetadataModule;
 import koopad.service.greeter.GreeterServiceDefinition;
 
+/** Binds Koopad Server dependencies. */
 @Module
 abstract class KoopadServerModule {
   @Provides

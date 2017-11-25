@@ -8,6 +8,7 @@ import koopad.grpc.HelloReply;
 import koopad.grpc.HelloRequest;
 import koopad.grpc.KoopadGreeterGrpc;
 
+/** Simple implementation of {@link KoopadGreeterGrpc}. */
 @GrpcService(grpcClass = KoopadGreeterGrpc.class)
 public final class Greeter extends KoopadGreeterGrpc.KoopadGreeterImplBase {
 
