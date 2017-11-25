@@ -1,3 +1,10 @@
+language: java
+jdk: openjdk8
+
+stages:
+  # - lint
+  - test
+
 addons:
   apt:
     sources:
@@ -6,20 +13,36 @@ addons:
     packages:
       - bazel
 
-matrix:
-  include:
-    - language: java
-      jdk: openjdk8
 
-script: |-
-  bazel \
-    --batch \
-    --host_jvm_args=-Xmx2500m \
-    --host_jvm_args=-Xms2500m \
-    test \
-    --noshow_loading_progress \
-    --noshow_progress \
-    --test_output=errors \
-    --test_strategy=standalone \
-    --ram_utilization_factor=10 \
-    //...
+
+jobs:
+  include:
+    - stage: lint
+      script: >
+        bazel
+          --batch
+          --host_jvm_args=-Xmx2500m
+          --host_jvm_args=-Xms2500m
+          build
+            //third_party:google_java_format
+        &&
+        ./bazel-bin/third_party/google_java_format
+          --dry-runn
+          --set-exit-if-changed
+          **/*.java
+
+
+    # test
+    - stage: test
+      script: >
+        bazel
+          --batch
+          --host_jvm_args=-Xmx2500m
+          --host_jvm_args=-Xms2500m
+          test
+            --noshow_loading_progress
+            --noshow_progress
+            --test_output=errors
+            --test_strategy=standalone
+            --ram_utilization_factor=10
+            //...
