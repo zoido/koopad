@@ -13,10 +13,9 @@ addons:
     packages:
       - bazel
 
-
-
 jobs:
   include:
+    # lint
     - stage: lint
       script: |-
         bazel \
@@ -28,9 +27,7 @@ jobs:
         && ./bazel-bin/third_party/google_java_format \
           --dry-run \
           --set-exit-if-changed \
-          **/*.java
-
-
+          `find . -iname "*.java"`
     # test
     - stage: test
       script: |-
