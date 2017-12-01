@@ -9,11 +9,15 @@ startup --host_jvm_args=-Xmx2500m
 startup --host_jvm_args=-Xms2500m
 test --ram_utilization_factor=10
 
-# Force Bazel output to use colors
+# ForceBbazel output to use colors
 common --color=yes
 
 # Configure tests - increase timeout, print errors and timeout warnings
 test --verbose_failures
 test --test_output=errors
 test --test_verbose_timeout_warnings
+
+# Disable progress displaying as logs can get really messy
+test --noshow_loading_progress
+test --noshow_progress
 

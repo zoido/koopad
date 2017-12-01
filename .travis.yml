@@ -16,6 +16,9 @@ addons:
 install: |-
   cp tools/ci/.bazelrc $HOME
 
+before_script:
+  - bazel info
+
 jobs:
   include:
     # lint
