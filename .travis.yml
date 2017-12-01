@@ -13,8 +13,9 @@ addons:
     packages:
       - bazel
 
-install: |-
-  cp tools/ci/.bazelrc $HOME
+install:
+  - cp tools/ci/.bazelrc $HOME
+  - go get -u github.com/bazelbuild/buildifier/buildifier
 
 before_script:
   - bazel info
@@ -23,13 +24,16 @@ jobs:
   include:
     # lint
     - stage: lint
-      script: |-
-        bazel build //third_party:google_java_format \
-        && ./bazel-bin/third_party/google_java_format --version \
-        && ./bazel-bin/third_party/google_java_format \
-          --dry-run \
-          --set-exit-if-changed \
-          `find . -iname "*.java"`
+      # Google Java Format
+      script:
+        - bazel build //third_party:google_java_format
+        - ./bazel-bin/third_party/google_java_format --version
+        - ./bazel-bin/third_party/google_java_format --dry-run --set-exit-if-changed $(find . -iname "*.java" -type f)
+      # Buildifier
+    - script:
+      - buildifier -mode=check $(find . -name BUILD -type f)
+      - buildifier -mode=check $(find . -name WORKSPACE -type f)
+      - buildifier -mode=check $(find . -name '*.bzl' -type f)
     # test
     - stage: test
       script: |-
