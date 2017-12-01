@@ -15,5 +15,6 @@ java_library(
 java_test(
     name = "GreeterTest",
     testonly = 1,
+    size = "small",
     runtime_deps = [":tests"],
 )
